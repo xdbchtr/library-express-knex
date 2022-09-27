@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-ENTRYPOINT ["bash", "script.sh" ]
+RUN npm install knex --save
 
 EXPOSE 8080
 
