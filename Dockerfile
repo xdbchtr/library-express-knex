@@ -6,10 +6,8 @@ COPY package.json .
 
 RUN npm install
 
-RUN npm run migrate
-
 COPY . .
 
 EXPOSE 8080
 
-CMD ["npm", "run", "start"]
+CMD ["/bin/bash", "-c", "npm run start;npm run migrate"]
