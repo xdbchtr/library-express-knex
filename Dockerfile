@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["/bin/bash", "-c", "npm run start;npm run migrate"]
+CMD ["/bin/bash", "-c", "npm run migrate"]
