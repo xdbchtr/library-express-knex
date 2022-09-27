@@ -1,3 +1,2 @@
 set -e
-npm install
 knex migrate:latest
