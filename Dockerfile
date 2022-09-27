@@ -10,7 +10,7 @@ COPY . .
 
 RUN chmod +x ./script
 
-ENTRYPOINT ["./Script"]
+ENTRYPOINT ["./script"]
 
 EXPOSE 8080
 
