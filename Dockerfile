@@ -6,6 +6,8 @@ COPY package.json .
 
 RUN npm install
 
+RUN ["knex", "migrate:all"]
+
 COPY . .
 
 EXPOSE 8080
