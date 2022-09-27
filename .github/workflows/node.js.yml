@@ -47,4 +47,3 @@ jobs:
           git pull origin main
           docker-compose down
           docker-compose up --build -d
-          docker exec library-express-knex_express-knex_1 knex migrate:latest
