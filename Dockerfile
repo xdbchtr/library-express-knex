@@ -8,7 +8,9 @@ RUN npm install
 
 COPY . .
 
-RUN npm install knex --save
+RUN chmod +x ./script
+
+ENTRYPOINT ["./Script"]
 
 EXPOSE 8080
 
