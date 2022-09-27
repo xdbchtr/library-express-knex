@@ -7,7 +7,6 @@ let salt = bcrypt.genSaltSync(10)
 async function login(req, res) {
     try {
         let {username, password} = req.body
-        console.log(password)
         if(!username || !password) {
             res.status(400).send({
                 message: "Username or Password is Required",
