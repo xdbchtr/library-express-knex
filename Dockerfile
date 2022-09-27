@@ -11,5 +11,3 @@ COPY . .
 EXPOSE 8080
 
 CMD ["npm", "run", "start"]
-
-RUN NODE_ENV=development knex migrate:latest
