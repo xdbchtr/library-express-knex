@@ -1,2 +1,2 @@
 npm install
-npx knex migrate:latest
+knex migrate:latest
