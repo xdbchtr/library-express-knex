@@ -43,4 +43,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          ls
+          cd ~/library-express-knex
+          git pull origin main
+          docker-compose down
+          docker-compose up --build -d
