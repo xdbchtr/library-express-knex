@@ -4,12 +4,12 @@ WORKDIR /app
 
 COPY package.json .
 
-RUN npm install
-
-COPY . .
-
 RUN chmod +x ./run
 
 ENTRYPOINT ["./run"]
 
+COPY . .
+
 EXPOSE 8080
+
+CMD ["npm", "run", "start"]
