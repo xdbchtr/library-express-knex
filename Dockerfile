@@ -6,7 +6,7 @@ COPY package.json .
 
 RUN npm install
 
-RUN ["knex", "migrate:all"]
+RUN npm migrate
 
 COPY . .
 
