@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-ENTRYPOINT ["script"]
+ENTRYPOINT ["/app/script"]
 
 EXPOSE 8080
 
