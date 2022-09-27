@@ -93,7 +93,7 @@ function successCreate(idData) {
     let dataInput = {
         "message": "successfully create data",
         "code":201,
-        "id": idData,
+        "id": idData[0],
         }
     return dataInput
 }
