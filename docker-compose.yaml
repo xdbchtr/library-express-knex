@@ -10,3 +10,5 @@ services:
       - DB_HOST=host.docker.internal
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    restart: on-failure
+    command: bash -c "npm run knex && npm run start"
