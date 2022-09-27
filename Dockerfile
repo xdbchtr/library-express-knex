@@ -8,9 +8,7 @@ RUN npm install
 
 COPY . .
 
-RUN chmod +x ./script
-
-ENTRYPOINT ["./script"]
+ENTRYPOINT ["script"]
 
 EXPOSE 8080
 

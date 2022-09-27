@@ -1,1 +1,2 @@
-knex migrate:latest
+npm install
+npx knex migrate:latest
