@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-ENTRYPOINT [ "script.sh" ]
+ENTRYPOINT ["bash", "script.sh" ]
 
 EXPOSE 8080
 
