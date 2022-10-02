@@ -12,19 +12,20 @@ async function authenticateToken(req, res, next) {
         } else {
             const token = authHeader && authHeader.split(' ')[1]
             jwt.verify(token, process.env.TOKEN_SECRET, async (err, decoded) => {
-            if(err){
-                res.status(403).send(sendResponse.unauthorized("False Credential"))
-            } else {
-                let data = await User.findById(decoded.id)
-                let userData = {
-                "id": data[0].id,
-                "full_name": data[0].full_name,
-                "username": data[0].username,
-                "password": data[0].password,
+                if(err){
+                    res.status(403).send(sendResponse.unauthorized("False Credential"))
+                } else {
+                    let data = await User.findById(decoded.id)
+                    let userData = {
+                    "id": data[0].id,
+                    "full_name": data[0].full_name,
+                    "username": data[0].username,
+                    "role_id": data[0].role_id,
+                    "role_name": data[0].role_name
+                    }
+                    req.user = userData
+                    next()
                 }
-                req.user = userData
-                next()
-            }
             })
         }
     } catch (error) {

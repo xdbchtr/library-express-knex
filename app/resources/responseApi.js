@@ -1,5 +1,6 @@
 function successGet(data) {
     let dataResult = {
+        "status": true,
         "message": "successfully get data",
         "code":200,
         "data": data
@@ -9,6 +10,7 @@ function successGet(data) {
 
 function successUpload(fileName) {
     return {
+        "status": true,
         "message": "Upload Success",
         "code": 200,
         "file_name": fileName
@@ -17,6 +19,7 @@ function successUpload(fileName) {
 
 function successOrder(orderId) {
     let data = {
+        "status": true,
         "message": "Order Registered",
         "code": 200,
         "order_id": orderId
@@ -33,6 +36,7 @@ function successLogin(token, data) {
         "phone": data[0].phone
     }
     return {
+        "status": true,
         "message": "successfully login",
         "code": 200,
         "is_logged_in": 1,
@@ -43,6 +47,7 @@ function successLogin(token, data) {
 
 function unauthorized(message) {
     let dataUnauthorized = {
+        "status": false,
         "message": message,
         "code": 403
     }
@@ -51,6 +56,7 @@ function unauthorized(message) {
 
 function successUpdate(data) {
     let dataResult = {
+        "status": true,
         "message": "successfully update data",
         "code":200,
         "data": data
@@ -60,6 +66,7 @@ function successUpdate(data) {
 
 function successTransaction() {
     return {
+        "status": true,
         "message": "Transaction Success",
         "code": 200
     }
@@ -67,6 +74,7 @@ function successTransaction() {
 
 function internalServerError() {
     let dataError = {
+        "status": false,
         "message": "internal server error, check console logs",
         "code":500,
     }
@@ -75,6 +83,7 @@ function internalServerError() {
 
 function userExist() {
     return {
+        "status": false,
         "message": "user already exists",
         "code":400,
     }
@@ -82,6 +91,7 @@ function userExist() {
 
 function unprocessableEntityError(data) {
     let dataError = {
+        "status": false,
         "message": "unprocessable entity",
         "code": 422,
         "data": data
@@ -91,6 +101,7 @@ function unprocessableEntityError(data) {
 
 function successCreate(idData) {
     let dataInput = {
+        "status": true,
         "message": "successfully create data",
         "code":201,
         "id": idData[0],
@@ -100,6 +111,7 @@ function successCreate(idData) {
 
 function successDelete(id) {
     let data = {
+        "status": true,
         "message": "successfully delete data",
         "code":201,
         "id": id
@@ -109,6 +121,7 @@ function successDelete(id) {
 
 function dataNotFoundException() {
     let dataNotFound = {
+        "status": false,
         "message": "data not found",
         "code": 404
     }
@@ -117,6 +130,7 @@ function dataNotFoundException() {
 
 function uploadFileException() {
     return {
+        "status": false,
         "message": "Please Upload Photo File",
         "code":400
     }

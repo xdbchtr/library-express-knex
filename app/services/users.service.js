@@ -6,12 +6,17 @@ async function findByUsername(request) {
     return User.findByUsername(request.body.username)
 }
 
+async function findAll() {
+    return User.findAll()
+}
+
 async function create (request) {
     let password = bcrypt.hashSync(request.body.password, salt)
     const userData = {
         full_name: request.body.full_name,
         username: request.body.username,
-        password: password
+        password: password,
+        role_id: request.body.role_id
     }
     let dataId = await User.create(userData)
     return dataId
@@ -19,5 +24,6 @@ async function create (request) {
 
 module.exports = {
     create,
-    findByUsername
+    findByUsername,
+    findAll
 }
