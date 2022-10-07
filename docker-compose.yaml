@@ -8,7 +8,12 @@ services:
       - .env
     environment:
       - DB_HOST=host.docker.internal
+<<<<<<< HEAD
       - DB_USERNAME=root
       - DB_PASSWORD=P@ssw0rd
+=======
+      - DB_USERNAME=db-remote
+      - DB_PASSWORD=DbVpsP@ssw0rd123!@#
+>>>>>>> 595852aa62e97bbce6aa0a58de8fd3217c930978
     extra_hosts:
       - "host.docker.internal:host-gateway"

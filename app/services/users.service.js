@@ -22,8 +22,35 @@ async function create (request) {
     return dataId
 }
 
+async function update (id, request) {
+    let data = {
+        full_name: request.body.full_name,
+        username: request.body.username
+    }
+
+    if (request.body.password) {
+        data.password = bcrypt.hashSync(request.body.password, salt)
+    }
+    
+    if (request.user.role_id == 1 || request.user.role_id == 2) {
+        data.role_id = request.body.role_id
+    } else {
+        data.role_id = 3
+    }
+
+    await User.updateUser(id, data)
+
+    return data
+}
+
+async function deleteData(id) {
+    return User.deleteData(id)
+}
+
 module.exports = {
     create,
     findByUsername,
-    findAll
+    findAll,
+    update,
+    deleteData
 }

@@ -21,9 +21,23 @@ async function findAll() {
     .join(knex.ref('roles').as('r'), 'r.id', '=', 'u.role_id')
 }
 
+async function updateUser(id, data) {
+    return knex('users')
+    .where({ id: id })
+    .update(data)
+}
+
+async function deleteData(id) {
+    return knex('users')
+    .where('id', id)
+    .del()
+}
+
 module.exports = {
     findById,
     create,
     findByUsername,
-    findAll
+    findAll,
+    updateUser,
+    deleteData
 }

@@ -35,7 +35,47 @@ async function index(req, res) {
     }
 }
 
+async function update(req, res) {
+    try {
+        const id = req.params.id;
+        
+        if (req.user.role_id == 3 && req.user.id != id) {
+            return res.status(403).send(sendResponse.unauthorized('forbidden'))
+        }
+
+        data = await userService.update(id, req)
+        return res.status(200).send(sendResponse.successUpdate(data))
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send(sendResponse.internalServerError())
+    }
+}
+
+async function destroy(req, res) {
+    try {
+
+        if (req.user.role_id == 3) {
+            return res.status(403).send(sendResponse.unauthorized('forbidden'))
+        }
+        
+        const id = req.params.id;
+        responseData = await userService.deleteData(id)
+        
+        if (responseData) {
+            return res.status(200).send(sendResponse.successDelete(id))
+        } else {
+            return res.status(404).send(sendResponse.dataNotFoundException())
+        }
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send(sendResponse.internalServerError())
+    }
+}
+
 module.exports = {
     create,
-    index
+    index,
+    update,
+    destroy
 }
