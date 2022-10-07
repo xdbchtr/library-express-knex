@@ -43,9 +43,14 @@ async function update (id, request) {
     return data
 }
 
+async function deleteData(id) {
+    return User.deleteData(id)
+}
+
 module.exports = {
     create,
     findByUsername,
     findAll,
-    update
+    update,
+    deleteData
 }

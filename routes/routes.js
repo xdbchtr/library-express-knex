@@ -16,6 +16,7 @@ router.group('/users', router => {
     router.post("/", secure.authenticateToken, userValidationRules(), validate, userHandler.create)
     router.get("/", secure.authenticateToken, userHandler.index)
     router.post("/:id", secure.authenticateToken, userHandler.update)
+    router.delete("/:id", secure.authenticateToken, userHandler.destroy)
 })
 
 module.exports = router

@@ -27,10 +27,17 @@ async function updateUser(id, data) {
     .update(data)
 }
 
+async function deleteData(id) {
+    return knex('users')
+    .where('id', id)
+    .del()
+}
+
 module.exports = {
     findById,
     create,
     findByUsername,
     findAll,
-    updateUser
+    updateUser,
+    deleteData
 }

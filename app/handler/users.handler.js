@@ -46,8 +46,26 @@ async function update(req, res) {
     }
 }
 
+async function destroy(req, res) {
+    try {
+        const id = req.params.id;
+        responseData = await userService.deleteData(id)
+
+        if (responseData) {
+            return res.status(200).send(sendResponse.successDelete(id))
+        } else {
+            return res.status(404).send(sendResponse.dataNotFoundException())
+        }
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send(sendResponse.internalServerError())
+    }
+}
+
 module.exports = {
     create,
     index,
-    update
+    update,
+    destroy
 }
