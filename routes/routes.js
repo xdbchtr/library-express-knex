@@ -15,6 +15,7 @@ router.group('/users', router => {
     // CREATE DATA USER
     router.post("/", secure.authenticateToken, userValidationRules(), validate, userHandler.create)
     router.get("/", secure.authenticateToken, userHandler.index)
+    router.post("/:id", secure.authenticateToken, userHandler.update)
 })
 
 module.exports = router

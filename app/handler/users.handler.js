@@ -35,7 +35,18 @@ async function index(req, res) {
     }
 }
 
+async function update(req, res) {
+    try {
+        const id = req.params.id;
+        await userService.update(id, req)
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send(sendResponse.internalServerError())
+    }
+}
+
 module.exports = {
     create,
-    index
+    index,
+    update
 }

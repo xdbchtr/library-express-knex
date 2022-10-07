@@ -22,8 +22,28 @@ async function create (request) {
     return dataId
 }
 
+async function update (id, request) {
+    let data = {
+        'full_name': request.body.full_name,
+        username: request.body.username
+    }
+
+    if (request.body.password) {
+        data.password = request.body.password
+    }
+    
+    if (request.user.role_id == 1 || request.user.role_id == 2) {
+        data.role_id = request.body.role_id
+    } else {
+        data.role_id = 3
+    }
+
+    console.log(data)
+}
+
 module.exports = {
     create,
     findByUsername,
-    findAll
+    findAll,
+    update
 }
