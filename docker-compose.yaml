@@ -9,6 +9,6 @@ services:
     environment:
       - DB_HOST=host.docker.internal
       - DB_USERNAME=db-remote
-      - DB_PASSWORD=DbVpsP@ssw0rd123!@#
+      - DB_PASSWORD=P@ssw0rd
     extra_hosts:
       - "host.docker.internal:host-gateway"
