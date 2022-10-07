@@ -38,6 +38,11 @@ async function index(req, res) {
 async function update(req, res) {
     try {
         const id = req.params.id;
+        
+        if (req.user.role_id == 3 && req.user.id != id) {
+            return res.status(403).send(sendResponse.unauthorized('forbidden'))
+        }
+
         data = await userService.update(id, req)
         return res.status(200).send(sendResponse.successUpdate(data))
     } catch (error) {
@@ -48,9 +53,14 @@ async function update(req, res) {
 
 async function destroy(req, res) {
     try {
+
+        if (req.user.role_id == 3) {
+            return res.status(403).send(sendResponse.unauthorized('forbidden'))
+        }
+        
         const id = req.params.id;
         responseData = await userService.deleteData(id)
-
+        
         if (responseData) {
             return res.status(200).send(sendResponse.successDelete(id))
         } else {
