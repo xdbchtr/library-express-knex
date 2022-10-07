@@ -24,12 +24,12 @@ async function create (request) {
 
 async function update (id, request) {
     let data = {
-        'full_name': request.body.full_name,
+        full_name: request.body.full_name,
         username: request.body.username
     }
 
     if (request.body.password) {
-        data.password = request.body.password
+        data.password = bcrypt.hashSync(request.body.password, salt)
     }
     
     if (request.user.role_id == 1 || request.user.role_id == 2) {
@@ -38,7 +38,9 @@ async function update (id, request) {
         data.role_id = 3
     }
 
-    console.log(data)
+    await User.updateUser(id, data)
+
+    return data
 }
 
 module.exports = {

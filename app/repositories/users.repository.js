@@ -22,9 +22,9 @@ async function findAll() {
 }
 
 async function updateUser(id, data) {
-    knex('users')
+    return knex('users')
     .where({ id: id })
-    .update(data, ['id'])
+    .update(data)
 }
 
 module.exports = {

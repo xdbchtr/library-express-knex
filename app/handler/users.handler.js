@@ -38,7 +38,8 @@ async function index(req, res) {
 async function update(req, res) {
     try {
         const id = req.params.id;
-        await userService.update(id, req)
+        data = await userService.update(id, req)
+        return res.status(200).send(sendResponse.successUpdate(data))
     } catch (error) {
         console.log(error)
         return res.status(500).send(sendResponse.internalServerError())
