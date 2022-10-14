@@ -10,6 +10,5 @@ services:
       - DB_HOST=host.docker.internal
       - DB_USERNAME=db-remote-access
       - DB_PASSWORD={DigitaloceanVpsP@ssw0rd}
-      - TZ=Asia/Jakarta
     extra_hosts:
       - "host.docker.internal:host-gateway"
