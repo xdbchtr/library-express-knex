@@ -8,6 +8,8 @@ RUN npm install
 
 ENV TZ="Asia/Jakarta"
 
+RUN date
+
 RUN apk update && apk add bash
 
 COPY . .
