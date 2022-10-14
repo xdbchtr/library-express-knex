@@ -1,9 +1,10 @@
-FROM node:16-alpine
-
+FROM ubuntu:22.04
 RUN apt-get update && apt-get install -y \
     nano \
     cron \
     git
+
+FROM node:16-alpine
 
 WORKDIR /app
 
