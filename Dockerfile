@@ -6,7 +6,7 @@ COPY package.json .
 
 RUN npm install
 
-RUN apk update && apk add bash
+ENV TZ="Asia/Jakarta"
 
 COPY . .
 
