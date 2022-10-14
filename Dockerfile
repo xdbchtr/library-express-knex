@@ -5,6 +5,8 @@ RUN apt-get update && \
     ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
 
+ENV TZ="Asia/Jakarta"
+
 FROM node:16-alpine
 
 WORKDIR /app
