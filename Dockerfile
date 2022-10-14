@@ -1,7 +1,5 @@
 FROM node:16-alpine
 
-RUN apt update && apt install tzdata -y
-
 ENV TZ="Asia/Jakarta"
 
 WORKDIR /app
