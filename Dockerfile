@@ -1,20 +1,10 @@
-
 FROM node:16-alpine
 
-RUN apt-get update && apt-get install -y \
-    nano \
-    cron \
-    git
-
-COPY . /var/www/html
-
-WORKDIR /var/www/html
+WORKDIR /app
 
 COPY package.json .
 
 RUN npm install
-
-ENV TZ="Asia/Jakarta"
 
 RUN apk update && apk add bash
 
