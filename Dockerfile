@@ -6,6 +6,8 @@ COPY package.json .
 
 RUN npm install
 
+RUN apk update && apk add bash
+
 COPY . .
 
 EXPOSE 8080
