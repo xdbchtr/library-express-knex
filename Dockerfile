@@ -1,12 +1,18 @@
 FROM node:16-alpine
 
+RUN apt-get update && \
+    apt-get install -yq tzdata && \
+    ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
+
+ENV TZ="Asia/Jakarta"
+
 WORKDIR /app
 
 COPY package.json .
 
 RUN npm install
 
-ENV TZ="Asia/Jakarta"
 
 RUN date
 
