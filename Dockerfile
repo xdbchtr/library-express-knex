@@ -1,11 +1,11 @@
-FROM node:16-alpine
-
 FROM ubuntu:20.04
 
 RUN apt-get update && \
     apt-get install -yq tzdata && \
     ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
+
+FROM node:16-alpine
 
 WORKDIR /app
 
