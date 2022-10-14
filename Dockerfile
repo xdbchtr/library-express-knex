@@ -6,8 +6,6 @@ COPY package.json .
 
 RUN npm install
 
-ENV TZ="Asia/Jakarta"
-
 COPY . .
 
 EXPOSE 8080
