@@ -1,18 +1,20 @@
-FROM ubuntu:22.04
+
+FROM node:16-alpine
+
 RUN apt-get update && apt-get install -y \
     nano \
     cron \
     git
 
-FROM node:16-alpine
+COPY . /var/www/html
 
-WORKDIR /app
+WORKDIR /var/www/html
 
 COPY package.json .
 
 RUN npm install
 
-RUN date
+ENV TZ="Asia/Jakarta"
 
 RUN apk update && apk add bash
 
