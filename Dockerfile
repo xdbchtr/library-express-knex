@@ -1,15 +1,23 @@
 FROM node:16-alpine
 
+RUN apk update && apk add bash \
+    nano \
+    tzdata
+
 WORKDIR /var/www/html
 
-COPY package.json /var/www/html/.
+COPY package.json /var/www/html
 
 RUN npm install
 
-RUN apk update && apk add bash
+ENV TZ="Asia/Jakarta"
 
-COPY . /var/www/html/.
+COPY . /var/www/html
 
 EXPOSE 8080
+
+RUN cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+
+RUN echo "Asia/Jakarta" > /etc/timezone
 
 CMD ["/bin/bash", "-c", "npm run migrate;npm run start"]
