@@ -1,14 +1,14 @@
 FROM node:16-alpine
 
-WORKDIR /app
+WORKDIR /var/www/html
 
-COPY package.json .
+COPY package.json /var/www/html/.
 
 RUN npm install
 
 RUN apk update && apk add bash
 
-COPY . .
+COPY . /var/www/html/.
 
 EXPOSE 8080
 
