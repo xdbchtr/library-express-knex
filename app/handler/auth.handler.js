@@ -1,7 +1,7 @@
 const Auth = require("../repositories/auth.repository")
 const sendResponse = require("../resources/responseApi")
 const jwt = require("../services/jwt")
-let bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt')
 
 async function login(req, res) {
     try {
