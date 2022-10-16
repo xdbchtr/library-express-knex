@@ -1,4 +1,4 @@
-let cron = require('node-cron');
+let CronJob = require('node-cron');
 
 async function test() {
     const scheduledJobFunction = CronJob.schedule("* * * * *", () => {
