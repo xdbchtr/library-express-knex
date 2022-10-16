@@ -1,8 +1,8 @@
 let CronJob = require('node-cron');
 
 async function test() {
-    const scheduledJobFunction = CronJob.schedule("* * * * *", () => {
-        console.log("I'm executed on a schedule!");
+    const scheduledJobFunction = CronJob.schedule("59 23 * * *", () => {
+        console.log("Cron is Running!");
     });
     
     scheduledJobFunction.start();
