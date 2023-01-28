@@ -3,7 +3,8 @@ FROM node:16-alpine
 RUN apk update && apk add bash \
     nano \
     tzdata \
-    openrc
+    openrc \
+    git
 
 WORKDIR /var/www/html
 

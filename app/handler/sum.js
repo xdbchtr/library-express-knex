@@ -1,13 +1,10 @@
-let CronJob = require('node-cron');
+const CronJob = require("node-cron");
 
-async function test() {
-    const scheduledJobFunction = CronJob.schedule("* * * * *", () => {
-        console.log("Cron is Running!");
-    });
-    
-    scheduledJobFunction.start();
-}
+exports.initScheduledJobs = () => {
+  const scheduledJobFunction = CronJob.schedule("* * * * *", () => {
+    console.log("I'm executed on a schedule!");
+    // Add your custom logic here
+  });
 
-module.exports = {
-    test
+  scheduledJobFunction.start();
 }

@@ -6,6 +6,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index')
 var router = require('./routes/routes');
 var app = express();
+const testHandler = require('./app/handler/sum')
+
+testHandler.initScheduledJobs();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
